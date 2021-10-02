@@ -8,11 +8,13 @@ class App extends React.Component{
     count: 0
   }
 
+  // use setState() instead of changing directly (to reflect changes render needs to be called)
+  // use current arrow function to get states instead of getting it directly
   add = () => {
-    console.log("add");
+    this.setState(current => ({ count: current.count + 1 }));
   };
   minus = () => {
-    console.log("minus");
+    this.setState(current => ({ count: current.count - 1 }));
   };
 
   // class React.Component will automatically run render
