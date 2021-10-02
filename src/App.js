@@ -1,15 +1,16 @@
-import PropTypes from "prop-types";
 import React from "react";
 
 class App extends React.Component{
+
+  // when component mounts
+  constructor(){
+    console.log("hello!");
+  }
   
-  // where we put dynamic data
   state = {
     count: 0
   }
 
-  // use setState() instead of changing directly (to reflect changes render needs to be called)
-  // use current arrow function to get states instead of getting it directly
   add = () => {
     this.setState(current => ({ count: current.count + 1 }));
   };
@@ -17,7 +18,21 @@ class App extends React.Component{
     this.setState(current => ({ count: current.count - 1 }));
   };
 
-  // class React.Component will automatically run render
+  // after being rendered
+  componentDidMount() {
+    console.log("Component rendered");
+  }
+
+  // after setState
+  componentDidUpdate() {
+    console.log("I just updated");
+  }
+
+  // after component goes away
+  componentWillUnmount() {
+    console.log("Goodbye, cruel world");
+  }
+
   render(){
     return (
       <div>
